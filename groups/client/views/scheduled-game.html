@@ -1,11 +1,11 @@
-<template name="pastGame">
+<template name="scheduledGame">
   <li class="table-view-cell media">
     <a class="navigate-right">
-      <span class="media-object pull-left">12:00pm</span>
+      <span class="media-object pull-left">{{time}}</span>
       <div class="media-body">
-        {{ended}}
+        {{sport}}
         <p>
-          {{played}}<br />
+          {{playing}}<br />
           {{location}}
         </p>
       </div>

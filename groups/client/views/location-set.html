@@ -1,0 +1,39 @@
+<template name="locationSet">
+  {{> headerNav}}
+
+  <div class="content">
+    <ul class="table-view">
+      <li class="table-view-divider">
+        Today<small> near San Francisco</small>
+      </li>
+      {{#each sundayGames}}
+        {{> scheduledGame}}
+      {{/each}}
+
+      <li class="table-view-divider">
+        Tomorrow<small>, Mar 3</small>
+      </li>
+      {{#each mondayGames}}
+        {{> scheduledGame}}
+      {{/each}}
+
+      <li class="table-view-divider">
+        Wednesday<small>, Mar 4</small>
+      </li>
+      {{#each wednesdayGames}}
+        {{> scheduledGame}}
+      {{/each}}
+
+      <li class="table-view-divider">
+        Friday<small>, Mar 6</small>
+      </li>
+      {{#each fridayGames}}
+        {{> scheduledGame}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <footer>
+    {{> tabNav}}
+  </footer>
+</template>
