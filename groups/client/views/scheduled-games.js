@@ -9,10 +9,18 @@ var sundayGames = [
   {
     sport: 'Basketball',
     day: 'Sunday',
-    time: '7:45am',
-    playing: '12 playing', 
-    location: 'Marina Green Park'
+    time: '12:00pm',
+    playing: '7 playing', 
+    location: 'Bakar Fitness and Recreation Center'
+  },
+  {
+    sport: 'Basketball',
+    day: 'Sunday',
+    time: '6:15pm',
+    playing: '15 playing', 
+    location: 'Potrero Hill Recreation Center'
   }
+
 ];
 
 var mondayGames = [
@@ -25,51 +33,41 @@ var mondayGames = [
   }
 ];
 
-var tuesdayGames = [
-  {
-    sport: 'Soccer',
-    day: 'Tuesday',
-    time: '7:15pm',
-    playing: '3 playing', 
-    location: 'Franklin Square'
-  }
-];
-
 var wednesdayGames = [
   {
     sport: 'Basketball',
     day: 'Wednesday',
-    time: '7:15pm',
-    playing: '3 playing', 
+    time: '9:45am',
+    playing: '9 playing', 
+    location: 'Upper Noe Recreation Center'
+  },
+  {
+    sport: 'Basketball',
+    day: 'Wednesday',
+    time: '11:45am',
+    playing: '2 playing', 
+    location: 'Franklin Square'
+  },
+  {
+    sport: 'Ultimate Frisbee',
+    day: 'Wednesday',
+    time: '6:00pm',
+    playing: '2 playing', 
     location: 'Franklin Square'
   },
   {
     sport: 'Soccer',
     day: 'Wednesday',
-    time: '7:15pm',
-    playing: '3 playing', 
-    location: 'Franklin Square'
+    time: '8:00pm',
+    playing: '13 playing', 
+    location: 'Raymond Kimbell Playground'
   },
   {
-    sport: 'Soccer',
+    sport: 'Basketball',
     day: 'Wednesday',
-    time: '7:15pm',
-    playing: '3 playing', 
-    location: 'Franklin Square'
-  },
-  {
-    sport: 'Soccer',
-    day: 'Wednesday',
-    time: '7:15pm',
-    playing: '3 playing', 
-    location: 'Franklin Square'
-  },
-  {
-    sport: 'Soccer',
-    day: 'Wednesday',
-    time: '7:15pm',
-    playing: '3 playing', 
-    location: 'Franklin Square'
+    time: '8:30pm',
+    playing: '13 playing', 
+    location: 'Bay Club San Francisco'
   },
 ];
 
@@ -78,15 +76,39 @@ var fridayGames = [
     sport: 'Soccer',
     day: 'Friday',
     time: '7:15pm',
-    playing: '3 playing', 
-    location: 'Franklin Square'
+    playing: '22 playing', 
+    location: 'Franklin Square Park'
   }
+];
+
+var saturdayGames = [
+  {
+    sport: 'Soccer',
+    day: 'Saturday',
+    time: '6:45pm',
+    playing: '16 playing', 
+    location: 'Cesar Chavez Soccer Field'
+  },
+  {
+    sport: 'Ultimate Frisbee',
+    day: 'Saturday',
+    time: '7:30pm',
+    playing: '5 playing', 
+    location: 'Franklin Square Park'
+  },
+  {
+    sport: 'Basketball',
+    day: 'Saturday',
+    time: '7:15pm',
+    playing: '22 playing', 
+    location: 'Franklin Square Park'
+  },
 ];
 
 Template.locationSet.helpers({
   sundayGames: sundayGames,
   mondayGames: mondayGames,
-  tuesdayGames: tuesdayGames,
   wednesdayGames: wednesdayGames,
-  fridayGames: fridayGames
+  fridayGames: fridayGames,
+  saturdayGames: saturdayGames
 });
