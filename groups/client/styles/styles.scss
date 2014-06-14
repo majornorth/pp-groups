@@ -1,11 +1,34 @@
 @import 'packages/font-awesome-sass/font-awesome';
 
-.fa {
+.tab-icon {
   display: inline-block;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-left-open-big {
+  display: inline-block;
+  padding-top: 10px;
   font-size: 24px;
   line-height: 1;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
+}
+
+.icon-link {
+  display: inline-block;
+  padding: 10px 5px 0 0;
+  font-size: 21px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav.bar.bar-tab {
+  padding: 3px 0;
 }
 
 //
@@ -202,18 +225,19 @@ $border-radius: 6px !default;
 
 .badge {
   display: inline-block;
-  padding: 2px 9px 3px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   color: #333;
-  background-color: rgba(0,0,0,.15);
-  border-radius: 100px;
 
   // Inverted badges have no background.
   &.badge-inverted {
     padding: 0 5px 0 0;
     background-color: transparent;
   }
+}
+
+.badge .icon-comment {
+  font-size: 18px;
 }
 
 
@@ -535,6 +559,7 @@ a {
   overflow: auto;
   background-color: #fff;
   -webkit-overflow-scrolling: touch;
+  margin-bottom: 34px;
 }
 
 // Hack to force all relatively and absolutely positioned elements still render while scrolling
@@ -566,6 +591,14 @@ a {
 }
 .bar-footer-secondary-tab ~ .content {
   padding-bottom: ($bar-tab-height+$bar-base-height);
+}
+
+nav.bar.bar-tab .tab-item {
+  padding-bottom: 8px;
+}
+
+nav.bar.bar-tab .tab-item .tab-label {
+  font-size: 14px;
 }
 
 // Utility classes
@@ -835,6 +868,11 @@ input[type="color"] {
   border: $border-default;
   border-radius: 3px;
   outline: none;
+}
+
+input[type="text"].add-comment {
+  width: 80%;
+  margin-bottom: 36px;
 }
 
 // Rounded search input
@@ -1462,6 +1500,11 @@ th {
   background-color: #fff;
   border-top: $border-default;
   border-bottom: $border-default;
+}
+
+.content.list-view .table-view:first-child {
+  margin-top: 0;
+  border-top: 0;
 }
 
 // Pad each table view item and add dividers

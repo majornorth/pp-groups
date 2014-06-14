@@ -1,17 +1,19 @@
 <template name="tabNav">
   <nav class="bar bar-tab">
     <a class="tab-item" id="groups-nav" href="{{urlFor 'groupsList'}}">
-      <span class="fa fa-group"></span><br />
+      <span class="tab-icon icon-group"></span><br />
       <span class="tab-label">Groups</span>
     </a>
     <a class="tab-item active" id="games-nav" href="{{pathFor 'locationSet'}}">
-      <span class="fa fa-list"></span><br />
+      <span class="tab-icon icon-list"></span><br />
       <span class="tab-label">Games</span>
     </a>
     <a class="tab-item" href="#">
+      <span class="tab-icon icon-plus-circled"></span><br />
       <span class="tab-label">Add game</span>
     </a>
     <a class="tab-item" href="#">
+      <span class="tab-icon icon-profile"></span><br />
       <span class="tab-label">Profile</span>
     </a>
   </nav>
