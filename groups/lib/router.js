@@ -2,7 +2,7 @@ Router.map(function() {
     this.route('layout', {
     path: '/',
     template: 'getLocation',
-    layoutTemplate: 'getLocation',
+    layoutTemplate: 'layout',
     yieldTemplates: {
       'tabNav': {to: 'footer'}
     }
@@ -11,12 +11,36 @@ Router.map(function() {
   this.route('locationSet', {
     path: '/locationSet',
     template: 'locationSet',
-    layoutTemplate: 'locationSet'
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+      'tabNav': {to: 'footer'}
+    }
   });
 
   this.route('groupsList', {
     path: '/groupsList',
     template: 'groupsList',
-    layoutTemplate: 'groupsList'
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+      'tabNav': {to: 'footer'}
+    }
+  });
+
+  this.route('gameDetail', {
+    path: '/gameDetail',
+    template: 'gameDetail',
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+      'tabNav': {to: 'footer'}
+    }
+  });
+
+  this.route('groupDetail', {
+    path: '/groupDetail',
+    template: 'groupDetail',
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+      'tabNav': {to: 'footer'}
+    }
   });
 });

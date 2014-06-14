@@ -1,6 +1,7 @@
 {
   "packages": {
     "iron-router": {},
-    "ratchet": {}
+    "scss": {},
+    "font-awesome-sass": {}
   }
 }

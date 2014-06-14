@@ -20,12 +20,12 @@
 
 if (Meteor.isClient) {
   Template.getLocation.events({
-    'click #getLocation' : function() {
+    "click #getLocation" : function() {
       Router.go('locationSet');
       // if(navigator.geolocation) {
       //   navigator.geolocation.getCurrentPosition(function(position) {
       //   });
-    //   }
+      // }
     }
   });
 };

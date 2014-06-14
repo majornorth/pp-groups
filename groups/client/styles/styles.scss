@@ -1,0 +1,1584 @@
+@import 'packages/font-awesome-sass/font-awesome';
+
+.fa {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+//
+// Variables
+// --------------------------------------------------
+
+
+// Type
+// --------------------------------------------------
+$font-family-default: "Helvetica Neue", Helvetica, sans-serif !default;
+$font-size-default: 17px !default;
+$font-weight: 500 !default;
+$font-weight-light: 400 !default;
+$line-height-default: 21px !default;
+
+
+// Colors
+// --------------------------------------------------
+
+// Main theme colors
+$primary-color: #428bca !default;
+$chrome-color:  #fff !default;
+
+// Action colors
+$default-color:  #fff !default;
+$positive-color: #5cb85c !default;
+$negative-color: #d9534f !default;
+
+
+// Bars
+// --------------------------------------------------
+
+$bar-base-height:  44px !default;
+$bar-tab-height:   50px !default;
+$bar-side-spacing: 10px !default;
+
+
+// Cards
+// --------------------------------------------------
+
+$card-bg: #fff !default;
+
+
+// Buttons
+// --------------------------------------------------
+
+$button-font-size: 12px !default;
+
+
+// Transitions
+// --------------------------------------------------
+
+$timing-fuction: cubic-bezier(.1,.5,.1,1) !default; // Inspired by @c2prods
+
+
+// Borders
+// --------------------------------------------------
+
+$border-default: 1px solid #ddd !default;
+$border-radius: 6px !default;
+
+
+//
+// Mixins
+// --------------------------------------------------
+
+
+// General
+// --------------------------------------------------
+
+// Utilities
+// -------------------------
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+@mixin clearfix() {
+  &:before,
+  &:after {
+    display: table; // 2
+    content: " "; // 1
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Box shadow
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+// Gradients
+@mixin linear-gradient($color-from, $color-to) {
+  background-color: $color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-from), color-stop(100%,$color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient(top, $color-from 0%, $color-to 100%);           // Chrome10+, Safari5.1+
+  background-image:    -moz-linear-gradient(top, $color-from 0%, $color-to 100%);           // FF3.6+
+  background-image:     -ms-linear-gradient(top, $color-from 0%, $color-to 100%);           // IE10+
+  background-image:      -o-linear-gradient(top, $color-from 0%, $color-to 100%);           // Opera 11.10+
+  background-image:         linear-gradient(to bottom, $color-from 0%, $color-to 100%);     // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-from}', endColorstr='#{$color-to}', GradientType=0 ); // IE6-9
+}
+@mixin directional-gradient($color-from, $color-to, $deg: 45deg) {
+  background-color: $color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0%,$color-from), color-stop(100%,$color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // Chrome10+, Safari5.1+
+  background-image:    -moz-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // FF3.6+
+  background-image:     -ms-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // IE10+
+  background-image:      -o-linear-gradient(45deg, $color-from 0%, $color-to 100%);           // Opera 11.10+
+  background-image:         linear-gradient(45deg, $color-from 0%, $color-to 100%);     // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-from}', endColorstr='#{$color-to}', GradientType=1 ); // IE6-9
+}
+
+
+// Transforms
+// --------------------------------------------------
+@mixin transform($transform...) {
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+
+// Transitions
+// --------------------------------------------------
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+          transition: $transition;
+}
+@mixin transition-property($property...) {
+  -webkit-transition-property: $property;
+     -moz-transition-property: $property;
+          transition-property: $property;
+}
+@mixin transition-duration($duration...) {
+  -webkit-transition-duration: $duration;
+     -moz-transition-duration: $duration;
+          transition-duration: $duration;
+}
+@mixin transition-timing-function($function...) {
+  -webkit-transition-timing-function: $function;
+     -moz-transition-timing-function: $function;
+          transition-timing-function: $function;
+}
+
+
+// Animations
+// --------------------------------------------------
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+     -moz-animation-name: $name;
+          animation-name: $name;
+}
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+     -moz-animation-duration: $duration;
+          animation-duration: $duration;
+}
+@mixin animation-direction($direction) {
+  -webkit-animation-direction: $direction;
+     -moz-animation-direction: $direction;
+          animation-direction: $direction;
+}
+
+
+// Misc
+// --------------------------------------------------
+@mixin hairline($type, $color, $offset) {
+  @if $type == single {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#{$color}' x='0' y='0' width='100%' height='0.5'/></svg>");
+    background-position: $offset 100%;
+
+  } @else if $type == double {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#{$color}' x='0' y='0' width='100%' height='0.5'/></svg>"),
+                      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='1'><rect fill='#{$color}' x='0' y='0' width='100%' height='0.5'/></svg>");
+    background-position: $offset 100%, $offset 0;
+  }
+  background-repeat: no-repeat;
+}
+
+//
+// Badges
+// --------------------------------------------------
+
+.badge {
+  display: inline-block;
+  padding: 2px 9px 3px;
+  font-size: 12px;
+  line-height: 1;
+  color: #333;
+  background-color: rgba(0,0,0,.15);
+  border-radius: 100px;
+
+  // Inverted badges have no background.
+  &.badge-inverted {
+    padding: 0 5px 0 0;
+    background-color: transparent;
+  }
+}
+
+
+// Badge modifiers
+// --------------------------------------------------
+
+// Main badge
+.badge-primary {
+  color: #fff;
+  background-color: $primary-color;
+
+  &.badge-inverted {
+    color: $primary-color;
+  }
+}
+
+// Positive badge
+.badge-positive {
+  color: #fff;
+  background-color: $positive-color;
+
+  &.badge-inverted {
+    color: $positive-color;
+  }
+}
+
+// Negative badge
+.badge-negative {
+  color: #fff;
+  background-color: $negative-color;
+
+  &.badge-inverted {
+    color: $negative-color;
+  }
+}
+
+//
+// Bars
+// --------------------------------------------------
+
+.bar {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: $bar-base-height;
+  padding-right: $bar-side-spacing;
+  padding-left: $bar-side-spacing;
+  background-color: $chrome-color;
+  border-bottom: $border-default;
+  -webkit-backface-visibility: hidden; // Make sure the bar is visible when a modal animates in.
+          backface-visibility: hidden;
+}
+
+// Modifier class to dock any bar below .bar-nav
+.bar-header-secondary {
+  top: $bar-base-height;
+}
+
+// Modifier class for footer bars
+.bar-footer {
+  bottom: 0;
+}
+
+// Modifier class to dock any bar above a standard bar
+.bar-footer-secondary {
+  bottom: $bar-base-height;
+}
+
+// Modifier class to dock any bar above a .bar-tab
+.bar-footer-secondary-tab {
+  bottom: $bar-tab-height;
+}
+
+// Give the footers the correct border
+.bar-footer,
+.bar-footer-secondary,
+.bar-footer-secondary-tab {
+  border-top: $border-default;
+  border-bottom: 0;
+}
+
+
+// Nav bar
+// --------------------------------------------------
+
+// Bar docked to top of viewport for showing page title and actions
+.bar-nav {
+  top: 0;
+}
+
+// Centered text in the .bar-nav
+//
+// We position the absolutely to make sure the title is always centered
+.title {
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 (-$bar-side-spacing);
+  font-size: $font-size-default;
+  font-weight: $font-weight;
+  line-height: $bar-base-height;
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+}
+// Retain specified title color
+.title a {
+  color: inherit;
+}
+
+
+// Tab bar
+// --------------------------------------------------
+
+// Bar docked to bottom and used for primary app navigation
+.bar-tab {
+  display: table;
+  bottom: 0;
+  width: 100%;
+  height: $bar-tab-height;
+  padding: 0;
+  table-layout: fixed;
+  border-top: $border-default;
+  border-bottom: 0;
+
+  // Navigational tab (Nested to be more specific for the icons in tab-items)
+  .tab-item {
+    display: table-cell;
+    width: 1%;
+    height: $bar-tab-height;
+    color: #929292;
+    text-align: center;
+    vertical-align: middle;
+
+    // Active states for the tab bar
+    &.active,
+    &:active {
+      color: $primary-color;
+    }
+
+    // Tab icon
+    .icon {
+      top: 3px;
+      width: 24px;
+      height: 24px;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      // Make the text smaller if it's used with an icon
+      ~ .tab-label {
+        display: block;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+// Bars with buttons
+// --------------------------------------------------
+
+.bar .btn {
+  position: relative;
+  top: 7px;
+  z-index: 20; // Position the buttons on top of .title
+  padding: 6px 12px 7px;
+  margin-top: 0;
+  font-weight: $font-weight-light;
+
+  // Give buttons that are floated left and right side margin
+  &.pull-right {
+    margin-left: $bar-side-spacing;
+  }
+  &.pull-left {
+    margin-right: $bar-side-spacing;
+  }
+}
+
+// Bars with link buttons (Line the text up with content)
+.bar .btn-link {
+  top: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: $bar-base-height;
+  color: $primary-color;
+  border: 0;
+
+  &:active,
+  &.active {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// Bars with block buttons
+//
+// Add proper padding
+.bar .btn-block {
+  top: 6px;
+  padding: 7px 0;
+  margin-bottom: 0;
+  font-size: 16px; // Scale down font size to fit in bar.
+}
+
+// Nav buttons (Only applicable within bars)
+//
+// Buttons inside bars that sit closer against the viewport.
+.bar .btn-nav {
+  &.pull-left {
+    margin-left: -5px;
+
+    .icon-left-nav {
+      margin-right: -3px;
+    }
+  }
+  &.pull-right {
+    margin-right: -5px;
+
+    .icon-right-nav {
+      margin-left: -3px;
+    }
+  }
+}
+
+
+// Bars with Ratchicons
+// --------------------------------------------------
+
+.bar {
+  .icon {
+    position: relative;
+    z-index: 20; // Position the buttons on top of .title
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+  }
+
+  // Vertical center the larger icons in btns.
+  .btn .icon {
+    top: 3px;
+    padding: 0;
+  }
+
+  // Handle carets in the titles
+  .title .icon {
+    padding: 0;
+
+    // Specific postioning of the caret icon within a title. Used with popover.js.
+    &.icon-caret {
+      top: 4px;
+      margin-left: -5px;
+    }
+  }
+}
+
+
+// Bars for search forms
+// --------------------------------------------------
+
+// Position/size search bar within the bar
+.bar input[type="search"] {
+  height: 29px;
+  margin: 6px 0;
+}
+
+
+// Bars with segmented controls
+// --------------------------------------------------
+
+// Position the control correctly inside a bar.
+.bar .segmented-control {
+  top: 7px;
+  margin: 0 auto;
+}
+
+//
+// Base styles
+// --------------------------------------------------
+
+// Use box sizing on all the things!
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+// We fix position the body and scroll `.content`.
+body {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: $font-family-default;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  color: #000;
+  background-color: #fff;
+}
+
+// Universal link styling
+a {
+  color: $primary-color;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // Removes the dark touch outlines on links in webkit browsers.
+
+  &:active {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// Wrapper to be used around all content not in .bar-title and .bar-tab
+.content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  background-color: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Hack to force all relatively and absolutely positioned elements still render while scrolling
+// Note: This is a bug for "-webkit-overflow-scrolling: touch"
+.content > * {
+  @include transform(translateZ(0));
+}
+
+// Pad top/bottom of content so it doesn't hide behind bars.
+// Note: For these to work, content must come after both bars in the markup
+.bar-nav ~ .content {
+  padding-top: $bar-base-height;
+}
+.bar-header-secondary ~ .content {
+  padding-top: ($bar-base-height*2);
+}
+
+// Footer bar padding
+.bar-footer ~ .content {
+  padding-bottom: $bar-base-height;
+}
+.bar-footer-secondary ~ .content {
+  padding-bottom: ($bar-base-height*2);
+}
+
+// Tab bar padding
+.bar-tab ~ .content {
+  padding-bottom: $bar-tab-height;
+}
+.bar-footer-secondary-tab ~ .content {
+  padding-bottom: ($bar-tab-height+$bar-base-height);
+}
+
+// Utility classes
+.content-padded {
+  margin: $bar-side-spacing;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.clearfix {
+  @include clearfix();
+}
+
+//
+// Buttons
+// --------------------------------------------------
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 6px 8px 7px;
+  margin-bottom: 0; // For input.btn
+  font-size: $button-font-size;
+  font-weight: $font-weight-light;
+  line-height: 1;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: $chrome-color;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  // Active & filled button styles
+  &:active,
+  &.active {
+    color: inherit; // Overriding the gloabl style for all anchors.
+    background-color: #ccc;
+  }
+
+  // Disabled styles & filled button active styles
+  &:disabled,
+  &.disabled {
+    opacity: .6;
+  }
+}
+
+
+// Other button types
+// --------------------------------------------------
+
+// Primary button (Default color is blue)
+.btn-primary {
+  color: #fff;
+  background-color: $primary-color;
+  border: 1px solid $primary-color;
+
+  &:active,
+  &.active {
+    color: #fff;
+    background-color: darken($primary-color, 10%);
+    border: 1px solid darken($primary-color, 10%);
+  }
+}
+
+// Positive button (Default color is green)
+.btn-positive {
+  color: #fff;
+  background-color: $positive-color;
+  border: 1px solid $positive-color;
+
+  &:active,
+  &.active {
+    color: #fff;
+    background-color: darken($positive-color, 10%);
+    border: 1px solid darken($positive-color, 10%);
+  }
+}
+
+// Negative button (Default color is red)
+.btn-negative {
+  color: #fff;
+  background-color: $negative-color;
+  border: 1px solid $negative-color;
+
+  &:active,
+  &.active {
+    color: #fff;
+    background-color: darken($negative-color, 10%);
+    border: 1px solid darken($negative-color, 10%);
+  }
+}
+
+// Outlined buttons
+.btn-outlined {
+  background-color: transparent;
+
+  &.btn-primary {
+    color: $primary-color;
+  }
+  &.btn-positive {
+    color: $positive-color;
+  }
+  &.btn-negative {
+    color: $negative-color;
+  }
+  // Active states
+  &.btn-primary:active,
+  &.btn-positive:active,
+  &.btn-negative:active {
+    color: #fff;
+  }
+}
+
+// Link button (Buttons that look like links)
+.btn-link {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: $primary-color;
+  background-color: transparent;
+  border: 0;
+
+  &:active,
+  &.active {
+    color: darken($primary-color, 10%);
+    background-color: transparent;
+  }
+}
+
+// Block level buttons (full width buttons)
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+
+// Button overrides
+// --------------------------------------------------
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  width: 100%;
+}
+
+
+// Buttons with badges
+// --------------------------------------------------
+
+// Generic styles for all badges within default buttons
+.btn .badge {
+  margin: -2px -4px -2px 4px;
+  font-size: 12px;
+  background-color: rgba(0,0,0,.15);
+}
+
+// Buttons with inverted badges
+.btn .badge-inverted,
+.btn:active .badge-inverted {
+  background-color: transparent;
+}
+.btn-primary:active .badge-inverted,
+.btn-positive:active .badge-inverted,
+.btn-negative:active .badge-inverted {
+  color: #fff;
+}
+
+// Position badges within block level buttons
+// Note: These are absolutely positioned so that text of button isn't "pushed" by badge and always
+// stays at the center of button
+.btn-block .badge {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+
+// Buttons with Ratchicons
+// --------------------------------------------------
+
+.btn .icon {
+  font-size: inherit;
+}
+
+//
+// Cards
+// --------------------------------------------------
+
+.card {
+  margin: $bar-side-spacing;
+  overflow: hidden;
+  background-color: $card-bg;
+  border: $border-default;
+  border-radius: $border-radius;
+}
+
+
+// Cards with table-views
+// --------------------------------------------------
+.card .table-view {
+  margin-bottom: 0;
+  border-top: 0;
+  border-bottom: 0;
+
+  // Rounding first divider on carded lists and remove border on the top
+  .table-view-divider:first-child {
+    top: 0;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  // Rounding last divider on carded table views
+  .table-view-divider:last-child {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+// Remove the bottom border from last table cell
+.card .table-view-cell:last-child {
+  border-bottom: 0;
+}
+
+//
+// Forms
+// --------------------------------------------------
+
+// Force form elements to inherit font styles
+input,
+textarea,
+button,
+select {
+  font-family: $font-family-default;
+  font-size: $font-size-default;
+}
+
+// Stretch inputs/textareas to full width and add height to maintain a consistent baseline
+select,
+textarea,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="color"] {
+  width: 100%;
+  height: 35px;
+  -webkit-appearance: none;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  line-height: $line-height-default;
+  background-color: #fff;
+  border: $border-default;
+  border-radius: 3px;
+  outline: none;
+}
+
+// Rounded search input
+input[type="search"] {
+  padding: 0 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  // Override content-box in normalize
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+input[type="search"]:focus {
+  text-align: left;
+}
+
+// Allow text area's height to grow larger than a normal input
+textarea {
+  height: auto;
+}
+
+// Style select button to look like part of the Ratchet's style
+select {
+  height: auto;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .1));
+}
+
+
+// Input groups (cluster multiple inputs together into a single group)
+// -------------------------------------------------------------------
+
+// Remove spacing, borders, shadows and rounding since it all belongs on the .input-group not the input
+.input-group {
+  background-color: #fff;
+}
+.input-group input,
+.input-group textarea {
+  margin-bottom: 0;
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  @include box-shadow(none);
+}
+
+// Input groups with labels
+// --------------------------------------------------
+
+// To use labels with input groups, wrap a label and an input in an .input-row
+.input-row {
+  overflow: hidden;
+  height: 35px; // Matches the height of inputs.
+  border-bottom: $border-default;
+}
+
+// Labels get floated left with a set percentage width
+.input-row label {
+  float: left;
+  width: 35%;
+  padding: 8px 15px;
+  font-family: $font-family-default;
+  line-height: 1.1; // Put the text on the baseline.
+}
+
+// Actual inputs float to right of labels and also have a set percentage
+.input-row input {
+  float: right;
+  width: 65%;
+  padding-left: 0;
+  margin-bottom: 0;
+  border: 0;
+}
+
+
+
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+//
+// 1. Set default font family to sans-serif.
+// 2. Prevent iOS text size adjust after orientation change, without disabling
+//    user zoom.
+//
+
+html {
+  font-family: sans-serif; // 1
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%; // 2
+}
+
+//
+// Remove default margin.
+//
+
+body {
+  margin: 0;
+}
+
+// HTML5 display definitions
+// ==========================================================================
+
+//
+// Correct `block` display not defined for any HTML5 element in IE 8/9.
+// Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+// Correct `block` display not defined for `main` in IE 11.
+//
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+//
+// 1. Correct `inline-block` display not defined in IE 8/9.
+// 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+//
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; // 1
+  vertical-align: baseline; // 2
+}
+
+//
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+//
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+//
+// Address `[hidden]` styling not present in IE 8/9/10.
+// Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+//
+
+[hidden],
+template {
+  display: none;
+}
+
+// Links
+// ==========================================================================
+
+//
+// Remove the gray background color from active links in IE 10.
+//
+
+a {
+  background: transparent;
+}
+
+//
+// Improve readability when focused and also mouse hovered in all browsers.
+//
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+// Text-level semantics
+// ==========================================================================
+
+//
+// Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+//
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+//
+// Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+//
+
+b,
+strong {
+  font-weight: bold;
+}
+
+//
+// Address styling not present in Safari and Chrome.
+//
+
+dfn {
+  font-style: italic;
+}
+
+//
+// Address variable `h1` font-size and margin within `section` and `article`
+// contexts in Firefox 4+, Safari, and Chrome.
+//
+
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+}
+
+//
+// Address styling not present in IE 8/9.
+//
+
+mark {
+  color: #000;
+  background: #ff0;
+}
+
+//
+// Address inconsistent and variable font size in all browsers.
+//
+
+small {
+  font-size: 80%;
+}
+
+//
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+//
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+// Embedded content
+// ==========================================================================
+
+//
+// Remove border when inside `a` element in IE 8/9/10.
+//
+
+img {
+  border: 0;
+}
+
+//
+// Correct overflow not hidden in IE 9/10/11.
+//
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// Grouping content
+// ==========================================================================
+
+//
+// Address margin not present in IE 8/9 and Safari.
+//
+
+figure {
+  margin: 1em 40px;
+}
+
+//
+// Address differences between Firefox and other browsers.
+//
+
+hr {
+  height: 0;
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
+}
+
+//
+// Contain overflow in all browsers.
+//
+
+pre {
+  overflow: auto;
+}
+
+//
+// Address odd `em`-unit font size rendering in all browsers.
+//
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+// Forms
+// ==========================================================================
+
+//
+// Known limitation: by default, Chrome and Safari on OS X allow very limited
+// styling of `select`, unless a `border` property is set.
+//
+
+//
+// 1. Correct color not being inherited.
+//    Known issue: affects color of disabled elements.
+// 2. Correct font properties not being inherited.
+// 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+//
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0; // 3
+  color: inherit; // 1
+  font: inherit; // 2
+}
+
+//
+// Address `overflow` set to `hidden` in IE 8/9/10/11.
+//
+
+button {
+  overflow: visible;
+}
+
+//
+// Address inconsistent `text-transform` inheritance for `button` and `select`.
+// All other form control elements do not inherit `text-transform` values.
+// Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+// Correct `select` style inheritance in Firefox.
+//
+
+button,
+select {
+  text-transform: none;
+}
+
+//
+// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+//    and `video` controls.
+// 2. Correct inability to style clickable `input` types in iOS.
+// 3. Improve usability and consistency of cursor style between image-type
+//    `input` and others.
+//
+
+button,
+html input[type="button"], // 1
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; // 2
+  cursor: pointer; // 3
+}
+
+//
+// Re-set default cursor for disabled elements.
+//
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+//
+// Remove inner padding and border in Firefox 4+.
+//
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+//
+// Address Firefox 4+ setting `line-height` on `input` using `!important` in
+// the UA stylesheet.
+//
+
+input {
+  line-height: normal;
+}
+
+//
+// It's recommended that you don't attempt to style these elements.
+// Firefox's implementation doesn't respect box-sizing, padding, or width.
+//
+// 1. Address box sizing set to `content-box` in IE 8/9/10.
+// 2. Remove excess padding in IE 8/9/10.
+//
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0; // 2
+  box-sizing: border-box; // 1
+}
+
+//
+// Fix the cursor style for Chrome's increment/decrement buttons. For certain
+// `font-size` values of the `input`, it causes the cursor style of the
+// decrement button to change from `default` to `text`.
+//
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+//
+// 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+// 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+//    (include `-moz` to future-proof).
+//
+
+input[type="search"] {
+  -webkit-box-sizing: content-box; // 2
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;         
+  -webkit-appearance: textfield; // 1
+}
+
+//
+// Remove inner padding and search cancel button in Safari and Chrome on OS X.
+// Safari (but not Chrome) clips the cancel button when the search input has
+// padding (and `textfield` appearance).
+//
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+//
+// Define consistent border, margin, and padding.
+//
+
+fieldset {
+  padding: .35em .625em .75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0;
+}
+
+//
+// 1. Correct `color` not being inherited in IE 8/9/10/11.
+// 2. Remove padding so people aren't caught out if they zero out fieldsets.
+//
+
+legend {
+  padding: 0; // 2
+  border: 0; // 1
+}
+
+//
+// Remove default vertical scrollbar in IE 8/9/10/11.
+//
+
+textarea {
+  overflow: auto;
+}
+
+//
+// Don't inherit the `font-weight` (applied by a rule above).
+// NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+//
+
+optgroup {
+  font-weight: bold;
+}
+
+// Tables
+// ==========================================================================
+
+//
+// Remove most spacing between table cells.
+//
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+//
+// Segmented controllers
+// --------------------------------------------------
+
+.segmented-control {
+  position: relative;
+  display: table;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: $font-weight-light;
+  background-color: $chrome-color;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  // Section within controller
+  .control-item {
+    display: table-cell;
+    width: 1%;
+    padding-top: 6px;
+    padding-bottom: 7px;
+    overflow: hidden;
+    line-height: 1;
+    color: #333;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-left: 1px solid #ccc;
+
+    // Remove border-left and shadow from first section
+    &:first-child {
+      border-left-width: 0;
+    }
+
+    // Tap state of segmented controller
+    &:active {
+      background-color: #eee;
+    }
+
+    // Selected state of segmented controller
+    &.active {
+      background-color: #ccc;
+    }
+  }
+}
+
+// Other segmented controller types
+// --------------------------------------------------
+
+// Primary
+.segmented-control-primary {
+  border-color: $primary-color;
+
+  .control-item {
+    color: $primary-color;
+    border-color: inherit;
+
+    &:active {
+      background-color: lighten($primary-color, 35%);
+    }
+    &.active {
+      color: #fff;
+      background-color: $primary-color;
+    }
+  }
+}
+
+// Positive
+.segmented-control-positive {
+  border-color: $positive-color;
+
+  .control-item {
+    color: $positive-color;
+    border-color: inherit;
+
+    &:active {
+      background-color: lighten($positive-color, 35%);
+    }
+    &.active {
+      color: #fff;
+      background-color: $positive-color;
+    }
+  }
+}
+
+// Negative
+.segmented-control-negative {
+  border-color: $negative-color;
+
+  .control-item {
+    color: $negative-color;
+    border-color: inherit;
+
+    &:active {
+      background-color: lighten($negative-color, 35%);
+    }
+    &.active {
+      color: #fff;
+      background-color: $negative-color;
+    }
+  }
+}
+
+// This is used to by the js to show and hide content tide to the segmented control.
+.control-content {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+//
+// Table views
+// --------------------------------------------------
+
+.table-view {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 15px;
+  list-style: none; // Remove usual bullet styles from table view
+  background-color: #fff;
+  border-top: $border-default;
+  border-bottom: $border-default;
+}
+
+// Pad each table view item and add dividers
+.table-view-cell {
+  position: relative;
+  padding: 11px 65px 11px 15px;
+  overflow: hidden;
+  border-bottom: $border-default;
+
+  // Remove the border from the last table view item
+  &:last-child {
+    border-bottom: 0;
+  }
+  // If it's a table view of links, make sure the child <a> takes up full table view item tap area (want to avoid selecting child buttons though)
+  > a:not(.btn) {
+    position: relative;
+    display: block;
+    padding: inherit;
+    margin: -11px -65px -11px -15px; // Make the entire list item tappable.
+    overflow: hidden;
+    color: inherit;
+
+    &:active {
+      background-color: #eee;
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+
+// Table view dividers
+// --------------------------------------------------
+
+.table-view-divider {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  margin-top: -1px; // Hides the border of the previous list item
+  margin-left: 0;
+  font-weight: $font-weight;
+  color: #999;
+  background-color: #fafafa;
+  border-top: $border-default;
+  border-bottom: $border-default;
+}
+
+
+// Table-views with media (images,avatars, icons)
+// --------------------------------------------------
+
+.table-view .media,
+.table-view .media-body {
+  overflow: hidden;
+}
+.table-view .media-object {
+  &.pull-left {
+    margin-right: 10px;
+  }
+  &.pull-right {
+    margin-left: 10px;
+  }
+}
+
+
+// Table-views with buttons, badges and toggles
+// --------------------------------------------------
+.table-view-cell,
+.table-view-cell > a {
+  > .btn,
+  > .badge,
+  > .toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    @include transform(translateY(-50%));
+  }
+
+  // If the cell has a chevron, give some more room.
+  .navigate-left,
+  .navigate-right,
+  .push-left,
+  .push-right {
+    > .btn,
+    > .badge,
+    > .toggle {
+      right: 35px;
+    }
+  }
+}
+
+// If the table view is the first component, give it extra margin on top.
+.content > .table-view:first-child {
+  margin-top: 15px;
+}
+
+//
+// Typography
+// --------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+h1, .h1 { font-size: 36px; }
+h2, .h2 { font-size: 30px; }
+h3, .h3 { font-size: 24px; }
+h4, .h4 { font-size: 18px; }
+h5, .h5 { font-size: 14px; margin-top: 20px; }
+h6, .h6 { font-size: 12px; margin-top: 20px; }
+
+// Paragraphs
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #777;
+}
