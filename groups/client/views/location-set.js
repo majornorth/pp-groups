@@ -2,7 +2,7 @@ var sundayGames = [
   {
     sport: 'Ultimate Frisbee',
     day: 'Sunday',
-    time: '7:45am',
+    time: '\xA0' + '\xA0' + '7:45am',
     playing: '12 playing', 
     location: 'Marina Green Park'
   },
@@ -16,7 +16,7 @@ var sundayGames = [
   {
     sport: 'Basketball',
     day: 'Sunday',
-    time: '6:15pm',
+    time: '\xA0' + '\xA0' + '6:15pm',
     playing: '15 playing', 
     location: 'Potrero Hill Recreation Center'
   }
@@ -27,7 +27,7 @@ var mondayGames = [
   {
     sport: 'Soccer',
     day: 'Monday',
-    time: '7:15pm',
+    time: '\xA0' + '\xA0' + '7:15pm',
     playing: '3 playing', 
     location: 'Franklin Square'
   }
@@ -37,7 +37,7 @@ var wednesdayGames = [
   {
     sport: 'Basketball',
     day: 'Wednesday',
-    time: '9:45am',
+    time: '\xA0' + '\xA0' + '9:45am',
     playing: '9 playing', 
     location: 'Upper Noe Recreation Center'
   },
@@ -51,21 +51,21 @@ var wednesdayGames = [
   {
     sport: 'Ultimate Frisbee',
     day: 'Wednesday',
-    time: '6:00pm',
+    time: '\xA0' + '\xA0' + '6:00pm',
     playing: '2 playing', 
     location: 'Franklin Square'
   },
   {
     sport: 'Soccer',
     day: 'Wednesday',
-    time: '8:00pm',
+    time: '\xA0' + '\xA0' + '8:00pm',
     playing: '13 playing', 
     location: 'Raymond Kimbell Playground'
   },
   {
     sport: 'Basketball',
     day: 'Wednesday',
-    time: '8:30pm',
+    time: '\xA0' + '\xA0' + '8:30pm',
     playing: '13 playing', 
     location: 'Bay Club San Francisco'
   },
@@ -75,7 +75,7 @@ var fridayGames = [
   {
     sport: 'Soccer',
     day: 'Friday',
-    time: '7:15pm',
+    time: '\xA0' + '\xA0' + '7:15pm',
     playing: '22 playing', 
     location: 'Franklin Square Park'
   }
@@ -85,21 +85,21 @@ var saturdayGames = [
   {
     sport: 'Soccer',
     day: 'Saturday',
-    time: '6:45pm',
+    time: '\xA0' + '\xA0' + '6:45pm',
     playing: '16 playing', 
     location: 'Cesar Chavez Soccer Field'
   },
   {
     sport: 'Ultimate Frisbee',
     day: 'Saturday',
-    time: '7:30pm',
+    time: '\xA0' + '\xA0' + '7:30pm',
     playing: '5 playing', 
     location: 'Franklin Square Park'
   },
   {
     sport: 'Basketball',
     day: 'Saturday',
-    time: '7:15pm',
+    time: '\xA0' + '\xA0' + '7:15pm',
     playing: '22 playing', 
     location: 'Franklin Square Park'
   },

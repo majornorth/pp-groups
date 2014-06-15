@@ -3,8 +3,7 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "scss": {},
-      "font-awesome-sass": {}
+      "scss": {}
     },
     "packages": {
       "iron-router": {
@@ -16,11 +15,6 @@
         "git": "https://github.com/fourseven/meteor-scss.git",
         "tag": "v0.8.7",
         "commit": "d085b7272eacc20866abff61b25c915a22ddbcf4"
-      },
-      "font-awesome-sass": {
-        "git": "https://github.com/reywood/meteor-font-awesome-sass.git",
-        "tag": "v4.0.3-1",
-        "commit": "93e7b43dc84b57988154486dff4d500e195f7943"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

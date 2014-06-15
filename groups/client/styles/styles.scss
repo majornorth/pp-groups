@@ -1,17 +1,7 @@
-@import 'packages/font-awesome-sass/font-awesome';
-
-.tab-icon {
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 1;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-}
-
 .icon-left-open-big {
   display: inline-block;
-  padding-top: 10px;
+  margin-top: 10px;
+  margin-right: 5px;
   font-size: 24px;
   line-height: 1;
   text-decoration: none;
@@ -20,7 +10,7 @@
 
 .icon-link {
   display: inline-block;
-  padding: 10px 5px 0 0;
+  padding: 11px 0 0 0;
   font-size: 21px;
   line-height: 1;
   text-decoration: none;
@@ -49,6 +39,7 @@ $line-height-default: 21px !default;
 // --------------------------------------------------
 
 // Main theme colors
+$brand-primary: #43828F !default;
 $primary-color: #428bca !default;
 $chrome-color:  #fff !default;
 
@@ -240,6 +231,13 @@ $border-radius: 6px !default;
   font-size: 18px;
 }
 
+.badge .icon-comment {
+  position: relative;
+  margin-left: 3px;
+  top: 5px;
+  color: $brand-primary;
+}
+
 
 // Badge modifiers
 // --------------------------------------------------
@@ -325,8 +323,19 @@ $border-radius: 6px !default;
 // --------------------------------------------------
 
 // Bar docked to top of viewport for showing page title and actions
+
 .bar-nav {
   top: 0;
+  background-color: $brand-primary;
+}
+
+.bar-nav .header, .bar-nav button.header {
+  color: $default-color;
+}
+
+.bar-nav i.icon-location {
+  padding-top: 10px;
+  font-size: 24px;
 }
 
 // Centered text in the .bar-nav
@@ -377,7 +386,7 @@ $border-radius: 6px !default;
     // Active states for the tab bar
     &.active,
     &:active {
-      color: $primary-color;
+      color: $brand-primary;
     }
 
     // Tab icon
@@ -462,6 +471,14 @@ $border-radius: 6px !default;
   }
 }
 
+.btn.btn-link.btn-nav.pull-right.header {
+  margin-right: 5px;
+  margin-left: 3px;
+}
+
+.btn.btn-link.btn-nav.pull-left.header {
+  margin-left: 0;
+}
 
 // Bars with Ratchicons
 // --------------------------------------------------
@@ -657,7 +674,7 @@ nav.bar.bar-tab .tab-item .tab-label {
 // Primary button (Default color is blue)
 .btn-primary {
   color: #fff;
-  background-color: $primary-color;
+  background-color: $brand-primary;
   border: 1px solid $primary-color;
 
   &:active,
@@ -1502,6 +1519,22 @@ th {
   border-bottom: $border-default;
 }
 
+div.media-body span.sport-type {
+  color: #51534A;
+  font-weight: 500;
+}
+
+div.media-body {
+  font-size: 15px;
+}
+
+div.media-body span.game-location {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .content.list-view .table-view:first-child {
   margin-top: 0;
   border-top: 0;
@@ -1553,6 +1586,9 @@ th {
   border-bottom: $border-default;
 }
 
+.table-view-divider span {
+  color: #51534A;
+}
 
 // Table-views with media (images,avatars, icons)
 // --------------------------------------------------
@@ -1561,9 +1597,12 @@ th {
 .table-view .media-body {
   overflow: hidden;
 }
+
 .table-view .media-object {
   &.pull-left {
     margin-right: 10px;
+    font-size: 14px;
+    color: #777;
   }
   &.pull-right {
     margin-left: 10px;
@@ -1624,4 +1663,22 @@ p {
   margin-bottom: 10px;
   font-size: 14px;
   color: #777;
+}
+
+//
+// Custom styles
+// --------------------------------------------------
+
+h3.game-type {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  color: $brand-primary;
+  text-transform:uppercase;
+}
+
+.group-availability {
+  color: #51534A;
+  font-size: 15px;
 }
