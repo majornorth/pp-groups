@@ -1,9 +1,9 @@
 <template name="pastGame">
-  <li class="table-view-cell media">
+  <li class="table-view-cell media" id="pastGame">
     <a class="navigate-right">
-      <img class="media-object pull-left" src="http://placehold.it/42x42">
+      <i class="{{icon}}"></i>
       <div class="media-body">
-        {{ended}}
+        <span>{{ended}}</span>
         <p>
           {{played}}<br />
           {{location}}

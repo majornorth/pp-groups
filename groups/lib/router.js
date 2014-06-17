@@ -33,6 +33,6 @@ Router.map(function() {
 
   this.route('signUp', {
     path: '/signup',
-    template: 'signUp',
+    template: 'signUp'
   });
 });

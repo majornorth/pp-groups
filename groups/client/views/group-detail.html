@@ -11,16 +11,16 @@
 
       <ul class="table-view upcoming-games-link">
         <li class="table-view-cell">
-          <a class="navigate-right" href="#">
+          <a id="upcomingGames" class="navigate-right" href="#">
             5 upcoming games
             <span class="icon-right-open-big pull-right"></span>
           </a>
         </li>
       </ul>
 
-      <h4>227 interested in playing</h4>
+      <h5 id="interestedPlayers">227 interested in playing</h5>
       <p>Most prefer a recreational evening game</p>
-      <a href="">
+      <a href="#">
         <img src="model-001.png" height="32" width="32" />
         <img src="model-002.png" height="32" width="32" />
         <img src="model-003.png" height="32" width="32" />
@@ -28,18 +28,18 @@
         <img src="model-005.png" height="32" width="32" />
         <img src="model-009.png" height="32" width="32" />
         <img src="model-008.png" height="32" width="32" />
-        <span class="icon-right-open-big"></span>
+        <span class="icon-right-open-big" id="playersList"></span>
       </a>
 
       <p></p>
 
-      <h4>4 comments <small>this week</small></h4>
+      <h5>4 comments <small>this week</small></h5>
 
-      <ul class="table-view">
+      <ul class="table-view" id="groupComments">
         <li class="table-view-cell media">
           <img class="media-object pull-left" src="model-003.png" height="32" width="32">
           <div class="media-body">
-            Daniel Finch
+            <span>Daniel Finch</span>
             <p>How about Crocker Amazon at 6:30?<br />
               6h
             </p>
@@ -49,7 +49,7 @@
         <li class="table-view-cell media">
           <img class="media-object pull-left" src="model-005.png" height="32" width="32">
           <div class="media-body">
-            Reeda Taylor
+            <span>Reeda Taylor</span>
             <p>Crocker is too far from me. Can we play somewhere in the city?<br />
               4h
             </p>
@@ -59,7 +59,7 @@
         <li class="table-view-cell media">
           <img class="media-object pull-left" src="model-002.png" height="32" width="32">
           <div class="media-body">
-            Mickey Dickensen
+            <span>Mickey Dickensen</span>
             <p>Yeah, me too. I'd rather play somewhere near the Mission.<br />
               4h
             </p>
@@ -69,7 +69,7 @@
         <li class="table-view-cell media">
           <img class="media-object pull-left" src="model-005.png" height="32" width="32">
           <div class="media-body">
-            Reeda Taylor
+            <span>Reeda Taylor</span>
             <p>Maybe we could play at Garfield Square Park?<br />
               4h
             </p>
@@ -80,7 +80,7 @@
       <div>
         <form>
           <input class="add-comment" type="text" placeholder="Add comment">
-          <button class="btn btn-link pull-right">Post</button>
+          <button class="btn btn-link pull-right post-comment">Post</button>
         </form>
       </div>
     </div>

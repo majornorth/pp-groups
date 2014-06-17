@@ -1,6 +1,10 @@
 <template name="signUp">
   <header class="bar bar-nav">
-    <i class="icon-cancel pull-left header" id="cancelSignup"></i>
+    <i class="icon-cancel pull-left header">
+    </i>
+    <button class="btn btn-link btn-nav pull-left header" id="cancelSignup">
+      Cancel
+    </button>
     <h1 class="title header">Sign up</h1>
   </header>
 
@@ -8,13 +12,25 @@
     <div class="content-padded">
 
       <button class="btn btn-facebook btn-block" id="fbSignup">
-        Sign up with Facebook
+        Sign in with Facebook
       </button>
 
       <div class="text-center">
         <p>or <strong>Sign up with email</strong></p>
       </div>
 
+      <div class="text-center">
+        <button class="icon-camera"></button>
+      </div>
+
+      <form>
+        <input type="text" placeholder="Full name">
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Password">
+        <button class="btn btn-primary btn-block">
+          Sign up
+        </button>
+      </form>
     </div>
   </div>
 </template>

@@ -43,6 +43,7 @@ $brand-primary: #43828F !default;
 $primary-color: #428bca !default;
 $chrome-color:  #fff !default;
 $facebook-color: #3A5383 !default;
+$header-color: #51534A !default;
 
 // Action colors
 $default-color:  #fff !default;
@@ -1133,7 +1134,8 @@ mark {
 //
 
 small {
-  font-size: 80%;
+  font-weight: 400;
+  font-size: 90%;
 }
 
 //
@@ -1664,12 +1666,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
   line-height: 1;
 }
-h1, .h1 { font-size: 36px; }
-h2, .h2 { font-size: 30px; }
-h3, .h3 { font-size: 24px; }
-h4, .h4 { font-size: 18px; }
-h5, .h5 { font-size: 14px; margin-top: 20px; }
-h6, .h6 { font-size: 12px; margin-top: 20px; }
+h1, .h1 { font-size: 36px; color: $header-color; }
+h2, .h2 { font-size: 30px; color: $header-color; }
+h3, .h3 { font-size: 24px; color: $header-color; }
+h4, .h4 { font-size: 18px; color: $header-color; }
+h5, .h5 { font-size: 14px; color: $header-color; margin-top: 20px; }
+h6, .h6 { font-size: 12px; color: $header-color; margin-top: 20px; }
 
 // Paragraphs
 p {
@@ -1702,7 +1704,8 @@ h3.game-type {
 }
 
 .upcoming-games-link {
-  
+  margin-top: 20px;
+  border-style: dotted none;
 }
 
 .icon-cancel {
@@ -1712,4 +1715,84 @@ h3.game-type {
 
 #fbSignup {
   margin-top: 25px;
+}
+
+.icon-camera {
+  font-size: 24px;
+  color: $default-color;
+  background-color: $brand-primary;
+  padding: 20px 20px 18px 20px;
+  margin: 10px 0 20px 0;
+  border: none;
+  border-radius: 6px;
+}
+
+#pastGame i {
+  color: #D4D4D4;
+  padding: 6px 20px 0 0;
+  float: left;
+}
+
+#pastGame {
+  background-color: #f6f6f6;
+}
+
+#pastGame span {
+  color: #999;
+  font-weight: 500;
+}
+
+#cancelSignup {
+  color: $brand-primary;
+}
+
+#upcomingGames {
+  margin-right: -120px;
+  margin-top: -7px;
+  color: $brand-primary;
+}
+
+.icon-right-open-big {
+  font-size: 24px;
+  color: $brand-primary;
+}
+
+span#playersList.icon-right-open-big {
+  position: relative;
+  top: -2px;
+}
+
+#getLocation {
+  color: $brand-primary;
+  font-size: 48px;
+  border: none;
+
+  ~ div {
+    font-size: 14px;
+    color: $brand-primary;
+    margin-top: -4px;
+  } 
+}
+
+#groupComments {
+  border-top-style: none;
+  > li {
+    padding: 11px 7px 11px 0;
+    border-bottom-style: dotted;
+  }
+}
+
+#groupComments span {
+  color: $header-color;
+  font-weight: 500;
+}
+
+h5#interestedPlayers {
+  margin-bottom: 3px;
+}
+
+.post-comment {
+  font-size: 17px;
+  padding-top: 8px;
+  color: $brand-primary;
 }
