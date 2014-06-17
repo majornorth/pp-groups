@@ -5,7 +5,9 @@
       <h3 class="game-type">Pickup Basketball</h3>
       <p class="group-availability">Thursdays near San Francisco, CA</p>
       
-      <button class="btn btn-primary btn-block">Join group</button>
+      <button class="btn btn-primary btn-block" id="joinGroup">
+        Join group
+      </button>
 
       <ul class="table-view upcoming-games-link">
         <li class="table-view-cell">
@@ -83,4 +85,8 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    {{> yield region="footer"}}
+  </footer>
 </template>

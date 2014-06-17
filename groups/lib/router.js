@@ -1,46 +1,38 @@
+Router.configure({
+  layoutTemplate: 'layout',
+  yieldTemplates: {
+    'tabNav': {to: 'footer'}
+  }
+});
+
 Router.map(function() {
     this.route('layout', {
     path: '/',
-    template: 'getLocation',
-    layoutTemplate: 'layout',
-    yieldTemplates: {
-      'tabNav': {to: 'footer'}
-    }
+    template: 'getLocation'
   });
 
   this.route('locationSet', {
     path: '/locationSet',
-    template: 'locationSet',
-    layoutTemplate: 'layout',
-    yieldTemplates: {
-      'tabNav': {to: 'footer'}
-    }
+    template: 'locationSet'
   });
 
   this.route('groupsList', {
     path: '/groupsList',
-    template: 'groupsList',
-    layoutTemplate: 'layout',
-    yieldTemplates: {
-      'tabNav': {to: 'footer'}
-    }
+    template: 'groupsList'
   });
 
   this.route('gameDetail', {
     path: '/gameDetail',
-    template: 'gameDetail',
-    layoutTemplate: 'layout',
-    yieldTemplates: {
-      'tabNav': {to: 'footer'}
-    }
+    template: 'gameDetail'
   });
 
   this.route('groupDetail', {
     path: '/groupDetail',
-    template: 'groupDetail',
-    layoutTemplate: 'layout',
-    yieldTemplates: {
-      'tabNav': {to: 'footer'}
-    }
+    template: 'groupDetail'
+  });
+
+  this.route('signUp', {
+    path: '/signup',
+    template: 'signUp',
   });
 });
