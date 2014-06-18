@@ -1835,3 +1835,79 @@ h5#interestedPlayers {
 #searchGames::-webkit-input-placeholder {
   color: $brand-primary;
 }
+
+.checkbox.availability {
+  float: left;
+  width: 50%;
+}
+
+.form-control {
+  background: none;
+  position: relative;
+  z-index: 2;
+  outline: none;
+  font-size: 16px;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &:focus {
+    z-index: 2;
+  }
+}
+
+.form-select {
+  font-size: 16px;
+  float: left;
+  width: 40%;
+  margin-bottom: 21px;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid $brand-primary;
+  border-radius: 0;
+}
+
+.availability-option {
+  clear: both;
+  margin-left: 20px;
+}
+
+.time-availability .icon-down-open {
+  margin-left: -20px;
+  color: $brand-primary;
+}
+
+.availability-option:first-child {
+  margin-top: 20px;
+}
+
+.checkbox.availability input[type="checkbox"] {
+  -webkit-appearance: none;
+  color: $default-color;
+  box-sizing: border-box;
+  background-color: $brand-primary;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  color: #99a1a7;
+}
+
+input[type="checkbox"]:checked:after {
+  content: '\2714';
+  font-size: 12px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #fff;
+}
+
+.checkbox.availability label span {
+  position: relative;
+  top: -2px;
+  left: 8px;
+}
