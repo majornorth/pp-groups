@@ -3,7 +3,9 @@
     <button class="btn btn-link btn-nav pull-left header" id="signUpHeader">
       Sign up
     </button>
-    <h1 class="title header">PushPickup</h1>
+    <form>
+      <input id="searchGames" type="text" placeholder="Find games" >
+    </form>
     <i class="icon-location pull-right header"></i>
   </header>
 </template>
@@ -13,6 +15,20 @@
     <i class="icon-left-open-big pull-left header"></i>
     <button class="btn btn-link btn-nav pull-left header">
       Pickups
+    </button>
+
+    <button class="btn btn-link btn-nav pull-right header">
+      Share
+    </button>
+    <i class="icon-link pull-right header"></i>
+  </header>
+</template>
+
+<template name="groupNav">
+  <header class="bar bar-nav">
+    <i class="icon-left-open-big pull-left header"></i>
+    <button class="btn btn-link btn-nav pull-left header groups">
+      Groups
     </button>
 
     <button class="btn btn-link btn-nav pull-right header">

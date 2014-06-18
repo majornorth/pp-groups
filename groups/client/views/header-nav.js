@@ -3,3 +3,9 @@ Template.detailNav.events({
     Router.go('locationSet');
   }
 });
+
+Template.groupNav.events({
+  "click .groups" : function() {
+    Router.go('groupsList');
+  }
+});

@@ -336,6 +336,8 @@ $border-radius: 6px !default;
 }
 
 .bar-nav i.icon-location {
+  position: relative;
+  top: -51px;
   padding-top: 10px;
   font-size: 24px;
 }
@@ -1715,6 +1717,14 @@ h3.game-type {
 
 #fbSignup {
   margin-top: 25px;
+  padding: 10px 0;
+  > i {
+    font-size: 24px;
+  }
+  > span {
+    position: relative;
+    top: -4px;
+  }
 }
 
 .icon-camera {
@@ -1742,7 +1752,7 @@ h3.game-type {
   font-weight: 500;
 }
 
-#cancelSignup {
+#cancelSignup, #cancelImprove {
   color: $brand-primary;
 }
 
@@ -1782,7 +1792,7 @@ span#playersList.icon-right-open-big {
   }
 }
 
-#groupComments span {
+#groupComments span, .sport-type {
   color: $header-color;
   font-weight: 500;
 }
@@ -1794,5 +1804,34 @@ h5#interestedPlayers {
 .post-comment {
   font-size: 17px;
   padding-top: 8px;
+  color: $brand-primary;
+}
+
+.btn.fluid {
+  width: 40%;
+  top: 6px;
+  padding: 12px 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.btn-muted {
+  color: #9B9B9B;
+  background-color: #D4D4D4;
+}
+
+#searchGames {
+  color: $brand-primary;
+  border-style: none;
+  margin-top: 6px;
+  display: inline;
+  width: 45%;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #689BA5;
+}
+
+#searchGames::-webkit-input-placeholder {
   color: $brand-primary;
 }

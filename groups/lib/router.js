@@ -35,4 +35,16 @@ Router.map(function() {
     path: '/signup',
     template: 'signUp'
   });
+
+  this.route('improveProfile', {
+    path: '/improve-profile',
+    template: 'improveProfile'
+  });
+
+  this.route('addAvailability', {
+    path: '/availability',
+    template: 'addAvailability'
+  });
+
+
 });
