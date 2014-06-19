@@ -40,6 +40,7 @@ $line-height-default: 21px !default;
 
 // Main theme colors
 $brand-primary: #43828F !default;
+$faded-brand: #C5D8DC !default;
 $primary-color: #428bca !default;
 $chrome-color:  #fff !default;
 $facebook-color: #3A5383 !default;
@@ -1838,7 +1839,7 @@ h5#interestedPlayers {
 
 .checkbox.availability {
   float: left;
-  width: 50%;
+  width: 58%;
 }
 
 .form-control {
@@ -1863,13 +1864,13 @@ h5#interestedPlayers {
   margin-bottom: 21px;
   box-shadow: none;
   border: none;
-  border-bottom: 1px solid $brand-primary;
+  border-bottom: 1px solid $faded-brand;
   border-radius: 0;
 }
 
 .availability-option {
   clear: both;
-  margin-left: 20px;
+  color: #4A4A4A;
 }
 
 .time-availability .icon-down-open {
@@ -1910,4 +1911,45 @@ input[type="checkbox"]:checked:after {
   position: relative;
   top: -2px;
   left: 8px;
+}
+
+.favorite-game-option {
+  clear: both;
+}
+
+.favorite-game-option .select-game-icon {
+  font-size: 36px;
+  color: #D2D2D2;
+}
+
+.set-favorites .time-availability {
+  width: 130px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.set-favorites .time-availability .form-control {
+  width: 100%;
+}
+
+.set-favorites .time-availability .icon-down-open {
+  float: right;
+}
+
+.set-favorites {
+  color: #4A4A4A;
+}
+
+.favorite-game-option:first-child {
+  margin-top: 30px;
+}
+
+.select-game-icon .active {
+  color: $brand-primary;
+}
+
+#soccerFavorite, #frisbeeFavorite, #basketballFavorite {
+  cursor: pointer;
 }

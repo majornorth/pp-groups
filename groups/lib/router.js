@@ -46,5 +46,8 @@ Router.map(function() {
     template: 'addAvailability'
   });
 
-
+  this.route('favoriteGames', {
+    path: '/choose-favorites',
+    template: 'favoriteGames'
+  });
 });

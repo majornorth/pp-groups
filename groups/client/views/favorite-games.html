@@ -1,0 +1,76 @@
+<template name="favoriteGames">
+  <header class="bar bar-nav">
+    <i class="icon-cancel pull-left header">
+    </i>
+    <button class="btn btn-link btn-nav pull-left header cancel-improve" id="cancelImprove">
+      Cancel
+    </button>
+    <h1 class="title header">Favorite games</h1>
+  </header>
+  <div class="content set-favorites">
+    <div class="content-padded">
+      <h4 class="text-center">Choose your favorite games</h4>
+      <p class="text-center">You'll be notified about pickups in your area based on your favorite game types.</p>
+
+      <form>
+        <div id="soccerFavorite" class="text-center">
+          <div class="favorite-game-option">
+            <div class="select-game-icon text-center">
+             <i class="icon-soccerball"></i>
+            </div>
+
+            <div class="time-availability text-center">
+              <span class="icon-down-open"></span>
+              <select class="form-control form-select">
+                <option>Beginner</option>
+                <option>Recreational</option>
+                <option>Intermediate</option>
+                <option>Competitive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="frisbeeFavorite" class="text-center">
+          <div class="favorite-game-option">
+            <div class="select-game-icon text-center">
+             <i class="icon-frisbee"></i>
+            </div>
+
+            <div class="time-availability">
+              <span class="icon-down-open"></span>
+              <select class="form-control form-select">
+                <option>Beginner</option>
+                <option>Recreational</option>
+                <option>Intermediate</option>
+                <option>Competitive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="basketballFavorite" class="text-center">
+          <div class="favorite-game-option">
+            <div class="select-game-icon text-center">
+             <i class="icon-basketball"></i>
+            </div>
+
+            <div class="time-availability">
+              <span class="icon-down-open"></span>
+              <select class="form-control form-select">
+                <option>Beginner</option>
+                <option>Recreational</option>
+                <option>Intermediate</option>
+                <option>Competitive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="setFavorites">
+          Set favorites
+        </button>
+      </form>
+    </div>
+  </div>
+</template>
